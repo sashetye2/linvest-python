@@ -1,9 +1,7 @@
 pipeline {
-  agent {
-    docker {
-      label 'windows'
-      image 'mcr.microsoft.com/powershell'
-    }
+  agent { label 'docker' }
+  environment {
+    PATH = "/hot/new/bin:${env.PATH}"
   }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
