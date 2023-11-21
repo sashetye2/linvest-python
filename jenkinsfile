@@ -5,7 +5,6 @@ pipeline {
       image 'mcr.microsoft.com/powershell'
     }
   }
-  agent any
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
