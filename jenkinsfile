@@ -1,13 +1,11 @@
 pipeline {
   agent { label 'docker' }
-  environment {
-    PATH = "/hot/new/bin:${env.PATH}"
-  }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    PATH = "/hot/new/bin:${env.PATH}"
   }
   stages {
     stage('Build') {
